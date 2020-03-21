@@ -1,2 +1,3 @@
-# web
-Website to post all aeroponics
+# Web Development
+Node.js project for API endpoint and data management
+
