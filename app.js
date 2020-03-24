@@ -15,11 +15,7 @@ mongoose.connect(MongoURI,
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
-    console.log('Hello')
-})
-
-app.post('/api/', (req, res) => {
-
+    console.log('Connected to database')
 })
 
 // Start Server
