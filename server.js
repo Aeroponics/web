@@ -2,8 +2,11 @@ const express = require('express')
 const app = express();  // new express app
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
 const plantRouter = require('./routers/plantRouter')
+const userRouter = require('./routers/user')
 
 require('dotenv').config()
 // Connect to database
@@ -18,6 +21,16 @@ db.once('open', () => {
     console.log('Connected to database')
 })
 
+
+// Middleware
+app.use(bodyparser.json())
+app.use(cookieParser())
+app.use(cors())
+
+// Routes
+app.use('/plant', plantRouter)
+app.use('/user', userRouter)
+
 // Start Server
 const port = process.env.PORT || 5000;
 app.listen(port, err => {
@@ -26,12 +39,4 @@ app.listen(port, err => {
     }
     console.log(`Server started on port ${port}`)
 }) 
-
-// Middleware
-app.use(bodyparser.json())
-
-// Routes
-app.use('/plant', plantRouter, (req, res, next) => {
-    next()
-})
 

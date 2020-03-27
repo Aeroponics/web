@@ -2,8 +2,6 @@ const router = require('express').Router()
 const Plant = require('../models/Plant')
 const auth = require('./auth')
 
-// parsing json from requests
-router
 // GET 
 router.get('/:id', (req, res) => {
     Plant.findOne({_id: req.params.id}, (err, doc) => {
