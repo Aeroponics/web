@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
                 return res.cookie('token', token, {
                     secure: false, 
                     httpOnly: true
-                }).sendStatus(200)
+                }).status(200).send(token)
             })
         })
     })
