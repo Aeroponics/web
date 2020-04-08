@@ -18,7 +18,7 @@ const MainNav = () => {
     return(
         <div>
             <Navbar color="dark" dark>
-                <NavbarBrand href="/" className="mr-auto">PestoPonics</NavbarBrand>
+                <NavbarBrand href="/" className="mr-auto">Harviot</NavbarBrand>
                 <Nav navbar className="mr-2">
                     <NavItem>
                     <GitHubButton href="https://github.com/aeroponics" aria-label="Follow @aeroponics on GitHub">
