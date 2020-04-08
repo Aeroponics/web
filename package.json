@@ -4,10 +4,10 @@
   "description": "aeroponics website",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js",
-    "client": "npm run start --prefix client", 
-    "build": "concurrently \"npm:dev\" \"npm:client\""
+    "dev-server": "nodemon server.js",
+    "dev-client": "npm run start --prefix client",
+    "dev": "concurrently \"npm:dev-*\"",
+    "build": "concurrently \"node server.js\" \"npm run build --prefix client\""
   },
   "repository": {
     "type": "git",
