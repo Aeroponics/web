@@ -33,9 +33,13 @@ app.use('/plant', plantRouter)
 app.use('/user', userRouter)
 
 // Set node environment
-if(process.env.NODE_ENV == "production"){
-    express.static(path.join(__dirname, "client", "build"))
-}
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'));
+    const path = require('path');
+    app.get("*", (req,res) =>  {
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+    })
+  }
 
 // Start Server
 const port = process.env.PORT || 5000;
