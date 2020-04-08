@@ -31,6 +31,11 @@ app.use(cors())
 app.use('/plant', plantRouter)
 app.use('/user', userRouter)
 
+// Set node environment
+if(process.env.NODE_ENV == "production"){
+    express.static(path.join(__dirname, "client", "build"))
+}
+
 // Start Server
 const port = process.env.PORT || 5000;
 app.listen(port, err => {
